@@ -30,7 +30,7 @@ describe "Log", ->
           log = new Log(options)
           expect(log.getTailCommand()).to.equal command
 
-    it_returns { filename: '/path/to/file' }, "tail -n 30 -f '/path/to/file'"
+    it_returns { filename: '/path/to/file' }, "tail -n 30 -F '/path/to/file'"
 
   describe "#getCommand", ->
     it_returns = (options, command) ->
@@ -39,10 +39,10 @@ describe "Log", ->
           log = new Log(options)
           expect(log.getCommand()).to.equal command
 
-    it_returns { filename: '/path/to/file' }, "tail -n 30 -f '/path/to/file'"
+    it_returns { filename: '/path/to/file' }, "tail -n 30 -F '/path/to/file'"
     it_returns {
       server: 'myserver',
       port: '1234',
       username: 'bob',
       filename: '/path/to/file' },
-      "ssh bob@myserver -p 1234 \"tail -n 30 -f '/path/to/file'\""
+      "ssh bob@myserver -p 1234 \"tail -n 30 -F '/path/to/file'\""

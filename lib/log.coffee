@@ -12,7 +12,7 @@ module.exports = class Log
     cmd = "ssh #{user}#{@options.server}#{port}"
 
   getTailCommand: ->
-    "tail -n 30 -f '#{@options.filename}'"
+    "tail -n 30 -F '#{@options.filename}'"
 
   getCommand: ->
     if @isRemote()
